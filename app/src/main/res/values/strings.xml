@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Location Feature</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="main_header">Location Feature</string>
+    <string name="current_location_menu_text">Last Known Location</string>
+    <string name="location_history_menu_text">Location History</string>
+    <string name="current_location_header">Current Location</string>
+    <string name="current_location_update_button">getLastKnownLocation</string>
+    <string name="current_location_elevation">Elevation</string>
+    <string name="current_location_latitude">Latitude</string>
+    <string name="current_location_longitude">Longitude</string>
+    <string name="current_location_accuracy">Accuracy</string>
+    <string name="request_location_updated_header">Listen for Location Updates</string>
+    <string name="listen_to_changes_menu">Listen to changes</string>
+    <string name="number_of_updates">Number of updates</string>
+    <string name="reverse_geocode">Reverse Geocode</string>
+    <string-array name="providerChoices">
+        <item>gps</item>
+        <item>network</item>
+        <item>passive</item>
+    </string-array>
+</resources>
