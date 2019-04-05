@@ -33,11 +33,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 val location = sent as Location
                 val newPosition = LatLng(location.latitude, location.longitude)
                 mMap.addMarker(MarkerOptions().position(newPosition).title("You are here"))
-
-                val center = CameraUpdateFactory.newLatLng(newPosition)
-                val zoom = CameraUpdateFactory.zoomTo(15f)
-                mMap.moveCamera(center)
-                mMap.animateCamera(zoom)
+                val yourLocation = CameraUpdateFactory.newLatLngZoom(newPosition, 10f)
+                mMap.animateCamera(yourLocation)
             }
         }
     }
