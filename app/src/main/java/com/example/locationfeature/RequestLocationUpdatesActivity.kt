@@ -129,4 +129,12 @@ class RequestLocationUpdatesActivity : AppCompatActivity(), LocationListener, An
         locationManager.requestLocationUpdates(provider, 5 * 1000, 0f, this)
         toast("Switched to provider $provider")
     }
+
+    /**
+     * Remove the active listener.
+     */
+    override fun onDestroy() {
+        super.onDestroy()
+        locationManager.removeUpdates(this)
+    }
 }
