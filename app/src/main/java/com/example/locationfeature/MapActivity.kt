@@ -10,6 +10,8 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.CameraUpdate
+
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -25,12 +27,18 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        val sent = intent.extras["position"]
-        if (sent != null) {
-            val location = sent as Location
-            val newPosition = LatLng(location.latitude, location.longitude)
-            mMap.addMarker(MarkerOptions().position(newPosition).title("You are here"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(newPosition))
+        if (intent.extras != null) {
+            val sent = intent.extras["position"]
+            if (sent != null) {
+                val location = sent as Location
+                val newPosition = LatLng(location.latitude, location.longitude)
+                mMap.addMarker(MarkerOptions().position(newPosition).title("You are here"))
+
+                val center = CameraUpdateFactory.newLatLng(newPosition)
+                val zoom = CameraUpdateFactory.zoomTo(15f)
+                mMap.moveCamera(center)
+                mMap.animateCamera(zoom)
+            }
         }
     }
 }
